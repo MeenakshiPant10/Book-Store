@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store - Login</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centered Login Form */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            background-color: #218838;
+        }
+
+        .capbox {
+            background: #f0e68c;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .capbox-inner {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #CaptchaDiv {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+        }
+    </style>
+</head>
+<body onload="funload()">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="mini_logo.jpg" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="log_in.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="customer_register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h1>Customer Login</h1>
+        <form action="userlog" method="post" onsubmit="checkform()" id="theform">
+            <div class="mb-3">
+                <label for="userName" class="form-label">Username</label>
+                <input type="text" class="form-control" id="userName" name="username" placeholder="Enter your Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Password" name="password" placeholder="Enter your Password" required>
+            </div>
+            <a href="seller_login.html" class="text-primary mb-3 d-block">Are you a Seller? Login as Admin</a>
+            
+            <!-- CAPTCHA -->
+            <div class="capbox">
+                <div id="CaptchaDiv">46749</div>
+                <div class="capbox-inner">
+                    <input type="hidden" id="txtCaptcha" value="46749">
+                    <input type="text" class="form-control" name="CaptchaInput" id="CaptchaInput" placeholder="Enter Captcha" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-login">Login as a User</button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        // CAPTCHA Generation Script
+        var a = Math.ceil(Math.random() * 9) + '';
+        var b = Math.ceil(Math.random() * 9) + '';
+        var c = Math.ceil(Math.random() * 9) + '';
+        var d = Math.ceil(Math.random() * 9) + '';
+        var e = Math.ceil(Math.random() * 9) + '';
+
+        var code = a + b + c + d + e;
+        document.getElementById("txtCaptcha").value = code;
+        document.getElementById("CaptchaDiv").innerHTML = code;
+
+        function checkform() {
+            var theform = document.getElementById("theform");
+            var why = "";
+            if (theform.CaptchaInput.value === "") {
+                why += "- Please Enter CAPTCHA Code.\n";
+            }
+            if (theform.CaptchaInput.value !== "") {
+                if (ValidCaptcha(theform.CaptchaInput.value) === false) {
+                    why += "- The CAPTCHA Code Does Not Match.\n";
+                }
+            }
+            if (why !== "") {
+                alert(why);
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        function ValidCaptcha() {
+            var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+            var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+            return str1 === str2;
+        }
+
+        function removeSpaces(string) {
+            return string.split(' ').join('');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Book Store</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f4f7fa;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background-color: #007bff; /* Blue color */
+            padding: 15px;
+        }
+        .navbar-brand img {
+            width: 60px;
+            height: auto;
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffd700 !important; /* Gold color on hover */
+        }
+        .container {
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .AdminLogin {
+            width: 100%;
+            border-radius: 50px;
+            background-color: #ccffcc;
+            color: #078707;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid #078707;
+        }
+        .AdminLogin:hover {
+            background-color: white;
+            color: #078707;
+        }
+        .header-text {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .login-link {
+            display: block;
+            color: blue;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand">
+                <img src="mini_logo.jpg" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">                
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="log_in.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="customer_register.html">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="header-text">Welcome to Online Book Store</h1>
+
+        <form action="adminlog" method="post">
+            <div class="text-center" style="color:brown; margin-bottom: 20px;">
+                <h4>Admin LOGIN</h4>
+            </div>
+            <a href="customer_login.html" class="login-link">Not an Admin? Click Here to Login as Customer</a>
+            <div class="form-group">
+                <label for="userName">Username:</label>
+                <input type="text" name="username" id="userName" class="form-control" placeholder="Enter your Username" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" name="password" id="Password" class="form-control" placeholder="Enter Password" required>
+            </div>
+            <input class="AdminLogin" type="submit" value="Login as an Admin">
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

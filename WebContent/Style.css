@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("web.jpg");
+    background-size: cover; /* Ensure the image covers the entire background */
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333; /* Set a default text color */
+}
+
+#topmid {
+    color: #480000;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px auto;
+    font-style: oblique;
+    font-size: 30px; /* Increased font size for better visibility */
+    text-shadow: 2px 2px #ff0000;
+}
+
+.tab {
+    font-weight: bold;
+    margin: auto;
+    width: 40%; /* Increased width for better layout */
+    text-align: center;
+}
+
+.tab tr {
+    border: 1px solid transparent; /* Adjusted border style */
+    border-radius: 10px;
+    background-color: rgba(255, 229, 204, 0.9); /* Slightly transparent background */
+    font-size: 22px;
+    padding: 15px; /* Increased padding for better spacing */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+a:hover {
+    color: #00ff00; /* Bright green hover effect */
+}
+
+a:link {
+    color: #333; /* Default link color */
+    text-decoration: none; /* No underline */
+}
+
+header nav li:hover {
+    border-bottom: 2px solid #ffff80; /* Highlight effect */
+    border-radius: 10px;
+    color: #ffff80;
+}
+
+header nav li {
+    display: inline-block; /* Changed to inline-block for better layout */
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+header nav a {
+    color: #ffbf00; /* Default link color */
+}
+
+header nav li a.active {
+    border-bottom: 2px solid #ffff80; /* Active link highlight */
+    border-radius: 10px;
+    color: #ffff80;
+    padding-bottom: 2px; /* Keep padding for consistency */
+}
+
+.holds-the-iframe {
+    background: url(loader.gif) center center no-repeat; /* Background for loading state */
+    background-size: cover; /* Ensure the loader covers the area */
+}

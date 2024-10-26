@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #343a40; /* Darker navbar */
+        }
+        .navbar-brand img {
+            height: 40px; /* Adjust logo size */
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* White text */
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #495057; /* Slight hover effect */
+            border-radius: 5px;
+        }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5); /* White border for toggler */
+        }
+        .nav-item .glyphicon {
+            margin-right: 5px; /* Icon spacing */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="mini_logo.jpg" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto"> <!-- Right-aligned menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="viewbook" id="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="viewbook" id="books">Available Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart" id="cart">
+                                <i class="bi bi-cart-fill"></i> Cart
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about" id="about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Bootstrap 5 JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
